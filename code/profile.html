@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body >
+    
+    <img src="../images/CompanyLogo.jpeg" style="height: 159px;
+    width: 529px;
+    padding-bottom: 0px;
+    margin-bottom: 50px;"></img>
+    <div class="profilecard">
+        <form action="" method="get" id="form1">
+            <center><label  style="color: teal; font-size: 24px"><b>Name</b></label>
+            <input type="text" id="name" required>
+            <label  style="color: teal; font-size: 24px;margin-left: 20px;"><b>PhoneNumber</b></label>
+            <input type="text" id="phone" required>
+            <h1 style="color:rgb(255, 123, 0);font-size: 64px;">Select Your Theme</h1>
+            <div class="profilecard">
+                <button type="submit" onclick="submit1()" style="background-color: transparent;cursor: pointer;border: 0px;" value="Submit">
+                    <a>
+                        <div class="overlay-text">Date</div>
+                        <img src="../images/date theme.jpg" alt="Date Theme"/>
+                    </a>
+                </button>
+                <button type="submit" onclick="submit2()" style="background-color: transparent;cursor: pointer;border: 0px;" value="Submit">
+                    <a>
+                        <div class="overlay-text">Business</div>
+                        <img src="../images/business theme.jpg" alt="Business Theme"/>
+                    </a>
+                </button>
+                <button type="submit" onclick="submit3()" style="background-color: transparent;cursor: pointer;border: 0px;" value="Submit">
+                    <a>
+                        <div class="overlay-text">Fine Dining</div>
+                        <img src="../images/finediningtheme.jpeg" alt="Fine Dining Theme"/>
+                    </a>
+                </button>
+            </div>
+        </center>
+        </form>
+    </div>
+    <script>
+        function Display(s){
+            // You can add logic to display text based on the parameter (s) passed
+            console.log("Displaying: " + s);
+        }
+        function submit1(){
+            localStorage['name'] = document.getElementById("name").value;
+            localStorage['phone'] = document.getElementById("phone").value;
+            localStorage['theme'] = "Date";
+            document.getElementById("form1").action="menudate.html";
+        }
+        function submit2(){
+            localStorage['name'] = document.getElementById("name").value;
+            localStorage['phone'] = document.getElementById("phone").value;
+            localStorage['theme'] = "Business";
+            document.getElementById("form1").action="menubus.html";
+        }
+        function submit3(){
+            localStorage['name'] = document.getElementById("name").value;
+            localStorage['phone'] = document.getElementById("phone").value;
+            localStorage['theme'] = "Fine Dining";
+            document.getElementById("form1").action="menufd.html";
+        }
+
+    </script>
+</body>
+</html>

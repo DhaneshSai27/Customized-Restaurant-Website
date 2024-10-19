@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Summary</title>
+    <link rel="stylesheet" href="bill.css">
+</head>
+<body>
+   <a href="profile.html"> <img src="../images/CompanyLogo.jpeg" style="height: 50px;    width: 100px;
+    align-items: left;
+    margin-top: 50px;"></img></a>
+    <div class="para">
+    <h1>Order Summary</h1>
+    <h2 id="name" style="margin-bottom: 0px;margin-left: 20px;"></h2>
+    <h2 id="phone" style="margin-bottom: 0px;margin-left: 20px;"></h2>
+    <h2 id="theme" style="margin-bottom: 0px;margin-left: 20px;"></h2>
+    <h2 id="date" style="margin-bottom: 0px;margin-left: 20px;"></h2>
+    <h2 id="time" style="margin-bottom: 0px;margin-left: 20px;"></h2>
+    <h2 id="i" style="margin-bottom: 20px;margin-left: 20px;"></h2>
+    <center>
+    <table border="1">
+        <tr>
+            <th>Serial Number</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Instructions</th>
+            <th>Time</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+        </tr>
+        
+    </table>
+</center>
+    <h2 style="font-size: 30px;">Total Amount: <span id="totalAmount"></span></h2>
+</div>
+    <input type="button" value="Print" onClick="window.print()" style="margin-top: 30px;margin-bottom: 30px;background-color: #ddd;
+    border: black;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+    background-color: teal;">
+
+    <script>
+        
+        const items = JSON.parse(localStorage['orderDetails']) || [];
+
+        
+        const table = document.querySelector('table');
+        const totalAmountSpan = document.getElementById('totalAmount');
+        document.getElementById('name').innerHTML = `<b>Name:</b> ${localStorage['name']}`
+        document.getElementById('phone').innerHTML = `<b>Phone:</b> ${localStorage['phone']}`
+        document.getElementById('theme').innerHTML = `<b>Theme:</b> ${localStorage['theme']}`
+        document.getElementById('date').innerHTML = `<b>Date:</b> ${localStorage['date']}`
+        document.getElementById('time').innerHTML = `<b>Time:</b> ${localStorage['time']}`
+        document.getElementById('i').innerHTML = `<b>Instructions:</b> ${localStorage['i'] || "None"}`
+        let totalAmount = 0;
+
+        items.forEach((item, index) => {
+            const [name, price, instructions, time, quantity, total] = item;
+            totalAmount += total;
+
+            const row = table.insertRow(-1);
+            const serialCell = row.insertCell(0);
+            const nameCell = row.insertCell(1);
+            const priceCell = row.insertCell(2);
+            const instructionsCell = row.insertCell(3);
+            const timeCell = row.insertCell(4);
+            const quantityCell = row.insertCell(5);
+            const totalCell = row.insertCell(6);
+
+            serialCell.textContent = index + 1;
+            nameCell.textContent = name;
+            priceCell.textContent = price;
+            instructionsCell.textContent = instructions;
+            timeCell.textContent = time;
+            quantityCell.textContent = quantity;
+            totalCell.textContent = total;
+        });
+
+    
+        totalAmountSpan.textContent = totalAmount.toFixed(2);
+    </script>
+</body>
+</html>

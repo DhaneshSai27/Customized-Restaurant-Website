@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Menu</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body style="background-image: url('../images/Businessmenubg.jpg');
+background-size: cover;
+background-position: center;">
+    <br>
+    <a href="profile.html">
+        <img src="../images/CompanyLogo.jpeg" style="padding-right: 1200px;"/></a>
+    <h1 style="color: teal;background-color: rgb(255,255,255,0.7);"><b>BUSINESS THEME</b></h1>
+    <div class="datetime-container">
+        <label for="date"  style="color: teal;"><b>Select Date:</b></label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="time" form= style="color: teal;"><b>Select Time:</b></label>
+        <input type="range " id="time" name="time" required>
+    </div>
+    <label class="menu" style="color: aliceblue;"><b>Instructions</b></label>
+    <input type="text" id="i" placeholder="Ex.Background music, Proposal ideas, flowers for decoration">
+
+
+    <label class="menu" style="color: cyan;" ><b>Select Category:</b></label>
+    <select id="categorySelect" onchange="filterCategory()">
+        <option value="all">All</option>
+        <option value="soups">Soups</option>
+        <option value="starters">Starters</option>
+        <option value="breads">Breads</option>
+        <option value="main-course">Main Course</option>
+        <option value="desserts">Desserts</option>
+        <option value="beverages">Beverages</option>
+    </select>
+    <form action="bill.html" method="get" id="form1" hidden></form>
+    <table>
+        <tr>
+            <th>Dish</th>
+            <th></th>
+            <th>Quantity</th>
+        </tr>
+        <!-- Veg Corn Soup -->
+        <tr class="soups">
+            <td>
+                <img src="../images/vegcornsoup.jpeg" alt="Veg Corn Soup">
+                <b>Veg Corn Soup</b><br><b>₹400</b>
+                <input hidden value="400">
+            </td>
+            <td>
+                <b>Estimated Cooking Time:- </b>60min    
+                <div class="a">
+                <label for="time" ><b>Select Time:</b></label>
+                <input type="time" id="time" name="time" required></div>
+           <br><br>
+                <b>Ingredients:</b><br>Sweet corn kernels, water, pepper, cornflour, scallions, celery, oil and salt
+            <br><br> <label>Instructions</label>
+            <input type="text" id="in1" placeholder="Ex.Allergic to an ingredient,make it spicy etc..."/>
+            </td>
+           <td class="quantity">
+                <button onclick="updateQuantity(this, -1)">-</button>
+                <input type="text" value="0">
+                <button onclick="updateQuantity(this, 1)">+</button>
+            </td>
+        </tr>
+        <!--Chicken Corn Soup-->
+        <tr class="soups">
+            <td>
+                <img src="../images/chickencornsoup.jpeg" alt="Chicken Corn Soup">
+                <b>Chicken Corn Soup</b><br><b>₹450</b>
+                <input hidden value="450">
+            </td>
+            <td>
+                <b>Estimated Cooking Time:- </b>90min
+                <div class="a">
+                    <label for="time" ><b>Select Time:</b></label>
+                    <input type="time" id="time" name="time" required></div><br><br>
+                <b>Ingredients:</b><br> chicken, sweet corn kernels, carrots, green beans, cabbage, spring onions, minced garlic, minced ginger, chicken broth, cornflour, beaten eggs, soy sauce, salt, pepper, and cooking oil.
+            <br><br> <label>Instructions</label>
+            <input type="text" id="in1" placeholder="Ex.Allergic to an ingredient,make it spicy etc..."/>
+            </td>
+           <td class="quantity">
+                <button onclick="updateQuantity(this, -1)">-</button>
+                <input type="text" value="0">
+                <button onclick="updateQuantity(this, 1)">+</button>
+            </td>
+        </tr>
+        <!--Veg Spring Roll-->
+        <tr class="starters">
+            <td>
+                <img src="../images/springrolls.jpeg" alt="Veg Spring Roll">
+                <b>Veg Spring Roll</b><br><b>₹500</b>
+                <input hidden value="500">
+            </td>
+            <td>
+                <b>Estimated Cooking Time:- </b>15min<div class="a">
+                    <label for="time" ><b>Select Time:</b></label>
+                    <input type="time" id="time" name="time" required></div><br><br>
+                <b>Ingredients:</b>
+                <br>Refined flour, cabbage, carrots, bell peppers, onions, garlic, ginger, soy sauce, and cooking oil.<br><br> <label>Instructions</label>
+            <input type="text" id="in1" placeholder="Ex.Allergic to an ingredient,make it spicy etc..."/>
+            </td>
+           <td class="quantity">
+                <button onclick="updateQuantity(this, -1)">-</button>
+                <input type="text" value="0">
+                <button onclick="updateQuantity(this, 1)">+</button>
+            </td>
+        </tr>
+        <!--Veg Manchuria-->
+        <tr class="starters">
+            <td>
+                <img src="../images/veg manchuria.jpg" alt="Veg Manchuria">
+                <b>Veg Manchuria</b><br><b>₹450</b>
+                <input hidden value="450">
+            </td>
+            <td>
+                <b>Estimated Cooking Time:- </b>25min
+                <div class="a">
+                    <label for="time" ><b>Select Time:</b></label>
+                    <input type="time" id="time" name="time" required></div><br><br>
+                <b>Ingredients:</b><br>Various vegetables, spices, sauces, and frying oil<br><br> <label>Instructions</label>
+            <input type="text" id="in1" placeholder="Ex.Allergic to an ingredient,make it spicy etc..."/>
+            </td>
+           <td class="quantity">
+                <button onclick="updateQuantity(this, -1)">-</button>
+                <input type="text" value="0">
+                <button onclick="updateQuantity(this, 1)">+</button>
+            </td>
+        </tr>
+        <!--Paneer Tikka-->
+        <tr class="starters">
+            <td>
+                <img src="../images/paneertikka.jpeg" alt="Paneer Tikka">
+                <b>Paneer Tikka</b><br><b>₹600</b>
+                <input hidden value="600">
+            </td>
+            <td>
+                <b>Estimated Cooking Time:- </b>25min
+                <div class="a">
+                    <label for="time" ><b>Select Time:</b></label>
+                    <input type="time" id="time" name="time" required></div><br><br>
+                <b>Ingredients:</b><br> Paneer, bell peppers, yogurt, spices, and skewers<br><br> <label>Instructions</label>
+            <input type="text" id="in1" placeholder="Ex.Allergic to an ingredient,make it spicy etc..."/>
+            </td>
+           <td class="quantity">
+                <button onclick="updateQuantity(this, -1)">-</button>
+                <input type="text" value="0">
+                <button onclick="updateQuantity(this, 1)">+</button>
+            </td>
+        </tr>
+        <!--Chicken 65-->
+        <tr class="starters">
+            <td>
+                <img src="../images/chicken 65.jpeg" alt="Chicken 65">
+                <b>Chicken 65</b><br><b>₹500</b>
+                <input hidden value="500">
+            </td>
+            <td>
+                <b>Estimated Cooking Time:- </b>25min
+                <div class="a">
+                    <label for="time" ><b>Select Time:</b></label>
+                    <input type="time" id="time" name="time" required></div><br><br>
+                <b>Ingredients:</b><br>Chicken, spices, curry leaves, and frying oil<br><br> <label>Instructions</label>
+            <input type="text" id="in1" placeholder="Ex.Allergic to an ingredient,make it spicy etc..."/>
+            </td>
+           <td class="quantity">
+                <button onclick="updateQuantity(this, -1)">-</button>
+                <input type="text" value="0">
+                <button onclick="updateQuantity(this, 1)">+</button>
+            </td>
+        </tr >
+        <!--Mutton Seekh Kebab-->
+        <tr class="starters">
+            <td>
+                <img src="../images/muttonsheekh kebab.jpeg" alt="Mutton Seekh Kebab">
+                <b>Mutton Seekh Kebab</b><br><b>₹700</b>
+                <input hidden value="700">
+            </td>
+            <td>
+                <b>Estimated Cooking Time:- </b>25min
+                <div class="a">
+                    <label for="time" ><b>Select Time:</b></label>
+                    <input type="time" id="time" name="time" required></div><br><br>
+                <b>Ingredients:</b><br>Minced mutton, spices, skewers<br><br> <label>Instructions</label>
+            <input type="text" id="in1" placeholder="Ex.Allergic to an ingredient,make it spicy etc..."/>
+            </td>
+           <td class="quantity">
+                <button onclick="updateQuantity(this, -1)">-</button>
+                <input type="text" value="0">
+                <button onclick="updateQuantity(this, 1)">+</button>
+            </td>
+        </tr>
+        <!--Appolo Fish-->
+        <tr class="starters">
+            <td>
+                <img src="../images/appolo fish.jpeg" alt="Appolo Fish">
+                <b>Appolo Fish</b><br><b>₹600</b>
+                <input hidden value="600">
+            </td>
+            <td>
+                <b>Estimated Cooking Time:- </b>25min
+                <div class="a">
+                    <label for="time" ><b>Select Time:</b></label>
+                    <input type="time" id="time" name="time" required></div><br><br>
+                <b>Ingredients:</b><br>Fish, spices, curry leaves, and frying oil<br><br> <label>Instructions</label>
+            <input type="text" id="in1" placeholder="Ex.Allergic to an ingredient,make it spicy etc..."/>
+            </td>
+           <td class="quantity">
+                <button onclick="updateQuantity(this, -1)">-</button>
+                <input type="text" value="0">
+                <button onclick="updateQuantity(this, 1)">+</button>
+            </td>
+        </tr>
+        <!--Rumali Roti-->
+        <tr class="breads">
+            <td>
+                <img src="../images/rumali roti.jpeg" alt="Rumali Roti">
+                <b>Rumali Roti</b><br><b>₹50</b>
+                <input hidden value="50">
+            </td>
+            <td>
+                <b>Estimated Cooking Time:- </b>15min
+                <div class="a">
+                    <label for="time" ><b>Select Time:</b></label>
+                    <input type="time" id="time" name="time" required></div><br><br>
+                <b>Ingredients:</b><br>Wheat flour, water, salt, and ghee<br><br> <label>Instructions</label>
+            <input type="text" id="in1" placeholder="Ex.Allergic to an ingredient,make it spicy etc..."/>
+            </td>
+           <td class="quantity">
+                <button onclick="updateQuantity(this, -1)">-</button>
+                <input type="text" value="0">
+                <button onclick="updateQuantity(this, 1)">+</button>
+            </td>
+        </tr>
+        <!--Butter Naan-->
+        <tr class="breads">
+            <td>
+                <img src="../images/butter naan.jpeg" alt="Butter Naan">
+                <b>Butter Naan</b><br><b>₹80</b>
+                <input hidden value="80">
+            </td>
+            <td>
+                <b>Estimated Cooking Time:- </b>15min
+                <div class="a">
+                    <label for="time" ><b>Select Time:</b></label>
+                    <input type="time" id="time" name="time" required></div><br><br>
+                <b>Ingredients:</b><br>All-purpose flour, yogurt, baking powder, and butter.<br><br> <label>Instructions</label>
+            <input type="text" id="in1" placeholder="Ex.Allergic to an ingredient,make it spicy etc..."/>
+            </td>
+           <td class="quantity">
+                <button onclick="updateQuantity(this, -1)">-</button>
+                <input type="text" value="0">
+                <button onclick="updateQuantity(this, 1)">+</button>
+            </td>
+        </tr>
+        <!--Paneer Butter Masala-->
+        <tr class="main-course">
+            <td>
+                <img src="../images/paneer butter masala.jpeg" alt="Paneer Butter Masala">
+                <b>Paneer Butter Masala</b><br><b>₹500</b>
+                <input hidden value="500">
+            </td>
+            <td>
+                <b>Estimated Cooking Time:- </b>35min
+                <div class="a">
+                    <label for="time" ><b>Select Time:</b></label>
+                    <input type="time" id="time" name="time" required></div><br><br>
+                <b>Ingredients:</b><br>Paneer, tomatoes, onions, cream, and spices<br><br> <label>Instructions</label>
+            <input type="text" id="in1" placeholder="Ex.Allergic to an ingredient,make it spicy etc..."/>
+            </td>
+           <td class="quantity">
+                <button onclick="updateQuantity(this, -1)">-</button>
+                <input type="text" value="0">
+                <button onclick="updateQuantity(this, 1)">+</button>
+            </td>
+        </tr>
+        <!--Butter Chicken-->
+        <tr class="main-course">
+            <td>
+                <img src="../images/butter chicken.jpeg" alt="Butter Chicken">
+                <b>Butter Chicken</b><br><b>₹600</b>
+                <input hidden value="600">
+            </td>
+            <td>
+                <b>Estimated Cooking Time:- </b>55min
+                <div class="a">
+                    <label for="time" ><b>Select Time:</b></label>
+                    <input type="time" id="time" name="time" required></div><br><br>
+                <b>Ingredients:</b><br>Chicken, tomatoes, cream, butter, and spices<br><br> <label>Instructions</label>
+            <input type="text" id="in1" placeholder="Ex.Allergic to an ingredient,make it spicy etc..."/>
+            </td>
+           <td class="quantity">
+                <button onclick="updateQuantity(this, -1)">-</button>
+                <input type="text" value="0">
+                <button onclick="updateQuantity(this, 1)">+</button>
+            </td>
+        </tr >
+        <!--Hyderabadi Chicken Biryani-->
+        <tr class="main-course">
+            <td>
+                <img src="../images/Chicken biriyani.jpeg" alt="Hyderabadi Chicken Biryani">
+                <b>Hyderabadi Chicken Biryani</b><br><b>₹700</b>
+                <input hidden value="700">
+            </td>
+            <td>
+                <b>Estimated Cooking Time:- </b>50min
+                <div class="a">
+                    <label for="time" ><b>Select Time:</b></label>
+                    <input type="time" id="time" name="time" required></div><br><br>
+                <b>Ingredients:</b><br>Chicken, basmati rice, spices, and fried onions<br><br> <label>Instructions</label>
+            <input type="text" id="in1" placeholder="Ex.Allergic to an ingredient,make it spicy etc..."/>
+            </td>
+           <td class="quantity">
+                <button onclick="updateQuantity(this, -1)">-</button>
+                <input type="text" value="0">
+                <button onclick="updateQuantity(this, 1)">+</button>
+            </td>
+        </tr >
+        <!--Mutton Biryani-->
+        <tr  class="main-course">
+            <td>
+                <img src="../images/mutton biryani.jpeg" alt="Mutton Biryani">
+                <b>Mutton Biryani</b><br><b>₹800</b>
+                <input hidden value="800">
+            </td>
+            <td>
+                <b>Estimated Cooking Time:- </b>50min
+                <div class="a">
+                    <label for="time" ><b>Select Time:</b></label>
+                    <input type="time" id="time" name="time" required></div><br><br>
+                <b>Ingredients:</b><br>Mutton, basmati rice, spices, and fried onions<br><br> <label>Instructions</label>
+            <input type="text" id="in1" placeholder="Ex.Allergic to an ingredient,make it spicy etc..."/>
+            </td>
+           <td class="quantity">
+                <button onclick="updateQuantity(this, -1)">-</button>
+                <input type="text" value="0">
+                <button onclick="updateQuantity(this, 1)">+</button>
+            </td>
+        </tr>
+        <!--Veg Dum Biryani-->
+        <tr class="main-course">
+            <td>
+                <img src="../images/Vegdumbiryani.webp" alt="Veg Dum Biryani">
+                <b>Veg Dum Biryani</b><br><b>₹500</b>
+                <input hidden value="500">
+            </td>
+            <td>
+                <b>Estimated Cooking Time:- </b>50min
+                <div class="a">
+                    <label for="time" ><b>Select Time:</b></label>
+                    <input type="time" id="time" name="time" required></div><br><br>
+                <b>Ingredients:</b><br>Mixed vegetables, basmati rice, spices, and fried onions<br><br> <label>Instructions</label>
+            <input type="text" id="in1" placeholder="Ex.Allergic to an ingredient,make it spicy etc..."/>
+            </td>
+           <td class="quantity">
+                <button onclick="updateQuantity(this, -1)">-</button>
+                <input type="text" value="0">
+                <button onclick="updateQuantity(this, 1)">+</button>
+            </td>
+        </tr>
+        <!--CreamBrule-->
+        <tr class="desserts">
+            <td>
+                <img src="../images/creambrule.jpeg" alt="CreamBrule">
+                <b>CreamBrule</b><br><b>₹400</b>
+                <input hidden value="400">
+            </td>
+            <td>
+                <b>Estimated Cooking Time:- </b>30min
+                <div class="a">
+                    <label for="time" ><b>Select Time:</b></label>
+                    <input type="time" id="time" name="time" required></div><br><br>
+                <b>Ingredients:</b><br>Cream, sugar, and vanilla extract<br><br> <label>Instructions</label>
+            <input type="text" id="in1" placeholder="Ex.Allergic to an ingredient,make it spicy etc..."/>
+            </td>
+           <td class="quantity">
+                <button onclick="updateQuantity(this, -1)">-</button>
+                <input type="text" value="0">
+                <button onclick="updateQuantity(this, 1)">+</button>
+            </td>
+        </tr>
+        <!--Tiramisu-->
+        <tr class="desserts">
+            <td>
+                <img src="../images/tiramisu.jpeg" alt="Tiramisu">
+                <b>Tiramisu</b><br><b>₹450</b>
+                <input hidden value="450">
+            </td>
+            <td>
+                <b>Estimated Cooking Time:- </b>30min
+                <div class="a">
+                    <label for="time" ><b>Select Time:</b></label>
+                    <input type="time" id="time" name="time" required></div><br><br>
+                <b>Ingredients:</b><br>Ladyfingers, coffee, mascarpone, and cocoa<br><br> <label>Instructions</label>
+            <input type="text" id="in1" placeholder="Ex.Allergic to an ingredient,make it spicy etc..."/>
+            </td>
+           <td class="quantity">
+                <button onclick="updateQuantity(this, -1)">-</button>
+                <input type="text" value="0">
+                <button onclick="updateQuantity(this, 1)">+</button>
+            </td>
+        </tr>
+        <!--Cheese Cake Brownie-->
+        <tr class="desserts">
+            <td>
+                <img src="../images/cheesecakebrownie.jpeg" alt="Cheese Cake Brownie">
+                <b>Cheese Cake Brownie</b><br><b>₹400</b>
+                <input hidden value="400">
+            </td>
+            <td>
+                <b>Estimated Cooking Time:- </b>35min
+                <div class="a">
+                    <label for="time" ><b>Select Time:</b></label>
+                    <input type="time" id="time" name="time" required></div><br><br>
+                <b>Ingredients:</b><br>Chocolate, cream cheese, brownie mix, and butter<br><br> <label>Instructions</label>
+            <input type="text" id="in1" placeholder="Ex.Allergic to an ingredient,make it spicy etc..."/>
+            </td>
+           <td class="quantity">
+                <button onclick="updateQuantity(this, -1)">-</button>
+                <input type="text" value="0">
+                <button onclick="updateQuantity(this, 1)">+</button>
+            </td>
+        </tr>
+        <!--Ice Cream-->
+        <tr class="desserts">
+            <td>
+                <img src="../images/icecream.jpeg" alt="Ice Cream">
+                <b>Ice Cream</b><br><b>₹350</b>
+                <input hidden value="350">
+            </td>
+            <td>
+                <b>Estimated Cooking Time:- </b>Null
+                <div class="a">
+                    <label for="time" ><b>Select Time:</b></label>
+                    <input type="time" id="time" name="time" required></div><br><br>
+                <b>Ingredients:</b><br>Heavy cream, whole milk, granulated sugar, flavour extracts.
+            <br><br> <label>Instructions</label>
+            <input type="text" id="in1" placeholder="Ex.Any Flavour, With Fruit Salad"/>
+            </td>
+           <td class="quantity">
+                <button onclick="updateQuantity(this, -1)">-</button>
+                <input type="text" value="0">
+                <button onclick="updateQuantity(this, 1)">+</button>
+            </td>
+        </tr>
+        <!--Mocktails-->
+        <tr class="beverages">
+            <td>
+                <img src="../images/Mocktails.jpeg" alt="Mocktails">
+                <b>Mocktails</b><br><b>₹400</b>
+                <input hidden value="400">
+            </td>
+            <td>
+                <b>Estimated Cooking Time:- </b>5min
+                '<div class="a">
+                    <label for="time" ><b>Select Time:</b></label>
+                    <input type="time" id="time" name="time" required></div><br><br>
+                <b>Ingredients:</b><br>Based on the drink.<br><br> <label>Instructions</label>
+            <input type="text" id="in1" placeholder="Ex.Blue Lagoon, pina colada etc"/>
+            </td>
+           <td class="quantity">
+                <button onclick="updateQuantity(this, -1)">-</button>
+                <input type="text" value="0">
+                <button onclick="updateQuantity(this, 1)">+</button>
+            </td>
+        </tr>
+               
+    </table>
+    <button onclick="generateBill()" style="size: 15px;">Submit Order</button> 
+    <script>
+        function generateBill() {
+
+        // Extract selected date and time        
+        localStorage['date'] = document.getElementById('date').value;
+        localStorage['time'] = document.getElementById('time').value;
+        localStorage['i'] = document.getElementById('i').value;
+
+
+        // Extract order details
+        const orderRows = document.querySelectorAll('table tr');
+        let orderDetails = [];
+
+        orderRows.forEach(row => {
+            if(row.querySelector('td img') != null){
+                const dishName = row.querySelector('td img').alt;
+                const quantity = row.querySelector('td.quantity input').value;
+
+                if (quantity > 0) {
+                    orderDetails.push([dishName, row.querySelector("td input").value, row.querySelector('td input#in1').value, row.querySelector('td input#time').value, quantity, quantity * row.querySelector("td input").value]);
+                }
+            }
+        });
+
+        localStorage['orderDetails'] = JSON.stringify(orderDetails);
+
+        document.getElementById("form1").submit();
+    }
+        function updateQuantity(button, value) {
+        const input = button.parentNode.querySelector('input');
+        let currentQuantity = parseInt(input.value);
+        currentQuantity += value;
+        if (currentQuantity < 0) {
+            currentQuantity = 0;
+        }
+        input.value = currentQuantity;
+    }
+
+    function filterCategory() {
+        const categorySelect = document.getElementById('categorySelect');
+        const selectedCategory = categorySelect.value;
+
+        const allRows = document.querySelectorAll('table tr');
+
+        allRows.forEach(row => {
+            const categoryClass = row.classList[0];
+            if (selectedCategory === 'all' || categoryClass === selectedCategory) {
+                row.style.display = 'table-row';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    }
+    </script>
+</body>
+</html>

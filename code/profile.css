@@ -1,0 +1,72 @@
+body {
+    background-color: rgb(255, 255, 255, 0.9);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('../images/BG.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profilecard {
+    background-color: rgb(255, 255, 255,0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profilecard a {
+    display: inline-block;
+    margin: 0 10px;
+    position: relative;
+}
+
+.profilecard img {
+    width: 100%;
+    max-width: 300px;
+    transition: opacity 0.3s ease-in-out; /* Add transition effect */
+}
+
+.profilecard a:hover img {
+    opacity: 0.2; /* Set the opacity on hover */
+}
+
+label {
+    justify-content: top;
+}
+
+.menu {
+    justify-content: center;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: teal;
+    font-size: 64px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.profilecard a:hover .overlay-text {
+    opacity: 5;
+}
+
+#logo {position:relative;}
+#logo .image,
+#logo .text {transition: opacity 0.5s ease-in-out;}
+#logo .text {position:absolute; top:0; left:0; opacity:0;}
+
+#logo:hover .image {opacity:0;}
+#logo:hover .text {opacity:1;}
